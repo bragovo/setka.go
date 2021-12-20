@@ -1,0 +1,30 @@
+services:
+  app: &app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/app
+      - go-build:/root/.cache/go-build
+    ports:
+      - 3000:3000
+
+  air: &air
+    image: cosmtrek/air
+    command: "air init"
+    working_dir: /app
+    volumes:
+      # - nfsmount:/app
+      - ./:/app
+      - go-build:/root/.cache/go-build
+    ports:
+      - 3000:3000
+
+volumes:
+  go-build:
+#   nfsmount:
+#     driver: local
+#     driver_opts:
+#       type: nfs
+#       o: addr=host.docker.internal,rw,nolock,hard,nointr,nfsvers=3
+#       device: :${PWD}
