@@ -3,9 +3,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    environment:
+      HISTFILE: /app/tmp/.bash_history
     volumes:
       - ./:/app
       - go-build:/root/.cache/go-build
+      - go-modules:/go/pkg/mod
     ports:
       - 3000:3000
 
@@ -17,11 +20,13 @@ services:
       # - nfsmount:/app
       - ./:/app
       - go-build:/root/.cache/go-build
+      - go-modules:/go/pkg/mod
     ports:
       - 3000:3000
 
 volumes:
   go-build:
+  go-modules:
 #   nfsmount:
 #     driver: local
 #     driver_opts:
