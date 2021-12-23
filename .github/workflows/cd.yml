@@ -13,6 +13,5 @@ jobs:
     steps:
     - uses: Azure/aks-set-context@v1
       with:
+        method: service-account
         token: ${{ secrets.TOKEN }}
-        cluster-name: contoso
-        resource-group: contoso-rg
