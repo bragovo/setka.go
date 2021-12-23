@@ -1,0 +1,19 @@
+name: Build and Deploy
+
+on: push
+
+# defaults:
+#   run:
+#     working-directory: ./k8s
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: manusa/actions-setup-minikube@v2.4.3
+      with:
+        minikube version: 'v1.24.0'
+        kubernetes version: 'v1.24.0'
+        github token: ${{ secrets.TOKEN }}
+    - run: kubectl get nodes
