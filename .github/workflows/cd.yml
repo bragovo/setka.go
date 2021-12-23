@@ -13,6 +13,6 @@ jobs:
     steps:
     - uses: Azure/aks-set-context@v1
       with:
-        creds: '${{ secrets.TOKEN }}'
+        token: ${{ secrets.TOKEN }}
         cluster-name: contoso
         resource-group: contoso-rg
