@@ -11,7 +11,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: Azure/aks-set-context@v1
+    - uses: Azure/aks-set-context@v2
       with:
-        method: service-account
         token: ${{ secrets.TOKEN }}
