@@ -1,0 +1,18 @@
+name: Build and Deploy
+
+on: push
+
+# defaults:
+#   run:
+#     working-directory: ./k8s
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: Azure/aks-set-context@v1
+      with:
+        creds: '${{ secrets.TOKEN }}'
+        cluster-name: contoso
+        resource-group: contoso-rg
