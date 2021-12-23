@@ -13,5 +13,7 @@ jobs:
     steps:
     - uses: manusa/actions-setup-minikube@v2.4.3
       with:
+        minikube version: 'v1.24.0'
+        kubernetes version: 'v1.24.0'
         github token: ${{ secrets.TOKEN }}
     - run: kubectl get nodes
