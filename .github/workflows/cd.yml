@@ -11,6 +11,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: Azure/aks-set-context@v2
+    - uses: azure/k8s-set-context@v2
       with:
         token: ${{ secrets.TOKEN }}
